@@ -1,6 +1,9 @@
 import io
 import json
 import xlsxwriter
+from celery.schedules import crontab
+from celery.app.task import periodic_task
+from django.utils import timezone
 
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
@@ -990,10 +993,11 @@ class ManagerDelete(View):
 
         return redirect('managers')
 
-# @periodic_task(run_every=crontab(minute='*/5'))
-# def delete_old_movements_and_realtions():
-#     d = timezone.now() - datetime.timedelta(hours=24)
-#     #get expired orders
-#     orders = CustomerOrder.objects.filter(timestamp__lt=d)
-#     #delete them
-#     orders.delete()
+
+@periodic_task(run_every=crontab(hour='*/1'))
+def delete_old_movements_and_realtions():
+    d = timezone.now() - datetime.timedelta(hours=24)
+    movements = Movement.objects.filter(d_time__hour=d)
+    tours = Tour.objects.filter(movement=movements).delete()
+    movements.delete()
+
