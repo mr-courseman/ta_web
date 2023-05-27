@@ -1,0 +1,73 @@
+{% extends 'ta_web/base.html' %}
+{% load static %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block style %}
+    <link href="{% static 'ta_web/css/index.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block background %}
+    <img src="{% static 'ta_web/images/background.jpg' %}" alt="">
+{% endblock %}
+
+{% block content %}
+    <form class="form">
+        <h1 class="h3 mb-3 fw-normal text-black">Главная страница</h1>
+        {% if role == 'Guest' %}
+            <div>Приветствуем! Вы попали на сайт Туристического Агенства "Шуховка". Войдите или зарегистрируйтесь, чтобы воспользоваться функциями сайта...</div>
+        {% else %}
+            <div>
+                Вы
+                {% if role == 'Admin' %}
+                    <b>Администратор</b>, поэтому вы можете использовать это:<br>
+                    <form class="form">
+                        <a href="{% url 'managers' %}" class="btn btn-outline-danger mb-2">Менеджеры</a>
+                        <a href="{% url 'sellers' %}" class="btn btn-outline-danger mb-2">Продавцы</a>
+                        <a href="{% url 'clients' %}" class="btn btn-outline-danger mb-2">Клиенты</a>
+                        <br>
+                        <a href="{% url 'tours' %}" class="btn btn-outline-danger mb-2">Туры</a>
+                        <a href="{% url 'movements' %}" class="btn btn-outline-danger mb-2">Путешествия</a>
+                        <a href="{% url 'contracts' %}" class="btn btn-outline-danger mb-2">Контракты</a>
+                        <br>
+                    </form>
+                {% elif role == 'Manager' %}
+                    <b>Менеджер</b>, поэтому вы можете использовать это:<br>
+                    <form class="form">
+                        <a href="{% url 'sellers' %}" class="btn btn-outline-danger mb-2">Продавцы</a>
+                        <a href="{% url 'seller_add' %}" class="btn btn-outline-danger mb-2">Добавить продавца</a>
+                        <br>
+                        <a href="{% url 'tours' %}" class="btn btn-outline-danger mb-2">Туры</a>
+                        <a href="{% url 'tour_add' %}" class="btn btn-outline-danger mb-2">Добавить тур</a>
+                        <br>
+                        <a href="{% url 'movements' %}" class="btn btn-outline-danger mb-2">Путешествие</a>
+                        <a href="{% url 'movement_add' %}" class="btn btn-outline-danger mb-2">Добавить путешествие</a>
+                    </form>
+                {% elif role == 'Seller' %}
+                    <b>Продавец</b>, поэтому вы можете использовать это:<br>
+                    <form class="form">
+                        <a href="{% url 'tours' %}" class="btn btn-outline-danger mb-2">Туры</a>
+                        <br>
+                        <a href="{% url 'clients' %}" class="btn btn-outline-danger mb-2">Клиенты</a>
+                        <br>
+                        <a href="{% url 'client_add' %}" class="btn btn-outline-danger mb-2">Добавить клиента</a>
+                        <br>
+                        <a href="{% url 'contracts' %}" class="btn btn-outline-danger mb-2">Договора</a>
+                        <br>
+                        <a href="{% url 'contract_add' %}" class="btn btn-outline-danger mb-2">Заключить договор</a>
+                        <br>
+                    </form>
+                {% elif role == 'Client' %}
+                    <b>Клиент</b>, поэтому вы можете использовать это:<br>
+                    <form class="form">
+                        <a href="{% url 'tours' %}" class="btn my_link_button btn-outline-danger mb-2">Возможные туры</a>
+                        <br>
+                        <a href="{% url 'my_tours' %}" class="btn my_link_button btn-outline-danger mb-2">Мои туры</a>
+                        <br>
+                        <a href="{% url 'my_movements' %}" class="btn my_link_button btn-outline-danger mb-2">Мои вылеты</a>
+                    </form>
+                {% endif %}
+            </div>
+        {% endif %}
+    </form>
+{% endblock %}

@@ -1,0 +1,12 @@
+[
+  {
+    "model": "ta_web.contract",
+    "pk": 1,
+    "fields": {
+      "seller": 3,
+      "client": 4,
+      "tour": 1,
+      "time": "2023-05-26T06:12:45.139Z"
+    }
+  }
+]

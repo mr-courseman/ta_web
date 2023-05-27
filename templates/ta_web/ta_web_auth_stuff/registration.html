@@ -1,0 +1,40 @@
+{% extends 'ta_web/base.html' %}
+{% load static %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block style %}
+    <link href="{% static 'ta_web/css/ta_web_auth_stuff/registration.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block background %}
+    <img src="{% static 'ta_web/images/background.jpg' %}" alt="">
+{% endblock %}
+
+{% block content %}
+    <form class="form" method="POST">
+        {% csrf_token %}
+        <img class="mb-4" src="{% static 'ta_web/images/favicon.ico' %}" alt="" width="48" height="48">
+        <h1 class="h3 mb-3 fw-normal text-black">Регистрация</h1>
+
+        <div class="row-form-errors">
+            {{ form.non_field_errors }}
+        </div>
+
+        {% for field in form %}
+            <div class="form-floating">
+                {{ field }}
+                <label for="{{ field.id_for_label }}" class="floating-input">{{ field.label }}</label>
+                {% include 'ta_web/specialFieldsInput.html' %}
+            </div>
+            <div class="row-form-errors"> {{ field.errors }}</div>
+        {% endfor %}
+        <button class="w-100 btn" type="submit">Регистрация</button>
+    </form>
+
+    {% for message in messages %}
+        <div class="form-floating">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endblock %}

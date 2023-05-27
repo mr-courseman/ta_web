@@ -1,0 +1,24 @@
+{% extends 'ta_web/ta_web_models_list/entities.html' %}
+
+{% block btns %}
+    <a href="{% url 'home' %}" type="button" class="btn btn-secondary mb-2">Вернуться</a>
+    {% if role != 'Client' %}
+        <a href="{% url 'movement_add' %}" type="button" class="btn btn-secondary mb-2">Добавить</a>
+        <br>
+        {% if page_obj.paginator.count != 0 %}
+            <a href="{%  url 'entities_xlsx' 'movements' %}" type="button" class="btn btn-secondary mb-2">Выгрузить в xlsx</a>
+            {% if role == 'Admin' %}
+                <a href="{%  url 'entities_json' 'movements' %}" type="button" class="btn btn-secondary mb-2">Выгрузить в json</a>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block output_entities %}
+    <a href="{% url 'movement' entity.id %}" class="list-group-item list-group-item-action flex-column border border-dark">
+        <p class="text-lfp mb-0">Город отбытия: {{ entity.d_city }}</p>
+        <p class="text-lfp mb-0">Город прибывания: {{ entity.a_city }}</p>
+        <p class="text-lfp mb-0">Выезд: {{ entity.d_time }}</p>
+        <p class="text-lfp mb-0">Прибытие: {{ entity.a_time }}</p>
+    </a>
+{% endblock %}

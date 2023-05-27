@@ -1,0 +1,19 @@
+@import url("../base.css");
+
+.form-control:focus {
+    border: rgba(40, 167, 69, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.form button[type="submit"] {
+    background: none;
+    color: black;
+    font-size: 20px;
+    display: block;
+    border-color: black;
+}
+
+.form button[type="submit"]:hover {
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+    cursor:pointer;
+}

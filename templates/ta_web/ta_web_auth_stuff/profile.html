@@ -1,0 +1,28 @@
+{% extends 'ta_web/base.html' %}
+{% load static %}
+
+{% block title %}Профиль{% endblock %}
+
+{% block style %}
+    <link href="{% static 'ta_web/css/ta_web_auth_stuff/profile.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block background %}
+    <img src="{% static 'ta_web/images/background.jpg' %}" alt="">
+{% endblock %}
+
+{% block content %}
+    <form method="GET" class="form">
+        <h1 class="h3 mb-2 fw-normal text-black">Профиль</h1>
+        {% for field in form %}
+            <div class="form-floating">
+                <input id="{% if field.widget_type == 'phonenumberprefix' %}phone{% else %}{{ field.id_for_label }}{% endif %}" class="form-control" readonly value="{{ field.value }}">
+                <label for="{% if field.widget_type == 'phonenumberprefix' %}phone{% else %}{{ field.id_for_label }}{% endif %}" class="floating-input">{{ field.label }}</label>
+            </div>
+        {% endfor %}
+        {% if role == 'Manager' or role == 'Seller' %}
+            <a href="{% url 'profile_update' %}" type="button" class="btn btn-secondary mt-2">Редактировать аккаунт</a>
+        {% endif %}
+        <a href="{% url 'profile_delete' %}" type="button" class="btn btn-secondary mt-2">Удалить аккаунт</a>
+    </form>
+{% endblock %}

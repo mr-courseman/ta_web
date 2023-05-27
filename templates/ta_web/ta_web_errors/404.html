@@ -1,0 +1,15 @@
+{% extends 'ta_web/base.html' %}
+{% load static %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block style %}
+    <link href="{% static 'ta_web/css/base.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <form class="form">
+        <h1 id="404">404 Error Page</h1>
+        <p id="text"><b>Something goes wrong :(</b></p>
+    </form>
+{% endblock %}

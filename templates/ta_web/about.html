@@ -1,0 +1,26 @@
+{% extends 'ta_web/base.html' %}
+{% load static %}
+
+{% block title %}О нас{% endblock %}
+
+{% block style %}
+    <link href="{% static 'ta_web/css/about.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block background %}
+    <img src="{% static 'ta_web/images/background.jpg' %}" alt="">
+{% endblock %}
+
+{% block content %}
+    <form class="form">
+        <h1 class="h1 mb-3 fw-normal text-black">О нас</h1>
+        <div>
+            Этот невообразимый шедевр инженерно-информатической мысли был создан в недрах
+            MegaEater42labs, студентом группы ПВ202 <q>БГТУ им. Шухова г. Белгород</q> Андреевым Ильёй для получения зачёта по
+            курсовой работе по предмету <q>Базы Данных</q>.
+        </div>
+        <div>
+            Темой данной курсовой стала и База Данных и Web-приложение Туристического Агенства... Что из этого вышло - узнайте сами!
+        </div>
+    </form>
+{% endblock %}

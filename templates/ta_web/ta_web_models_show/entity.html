@@ -1,0 +1,30 @@
+{% extends 'ta_web/base.html' %}
+{% load static %}
+
+{% block title %}Профиль {{ placeholder }}{% endblock %}
+
+{% block style %}
+    <link href="{% static 'ta_web/css/ta_web_models_show/base_show.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block background %}
+    <img src="{% static 'ta_web/images/background.jpg' %}" alt="">
+{% endblock %}
+
+{% block content %}
+    <form method="GET" class="form">
+        <h1 class="h3 mb-1 fw-normal text-black">Профиль {{ placeholder }}</h1>
+        {% block back_btn %}{% endblock %}
+
+        {% for field in form %}
+            {% if field.widget_type != 'hidden' %}
+                <div class="form-floating">
+                    <input id="{{ field.id }}" class="form-control" readonly value="{{ field.value }}">
+                    <label for="{{ field.id }}" class="floating-input">{{ field.label }}</label>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% block upd_del_btn %}{% endblock %}
+    </form>
+{% endblock %}

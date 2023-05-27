@@ -1,0 +1,25 @@
+{% extends 'ta_web/ta_web_models_list/entities.html' %}
+
+{% block btns %}
+    <a href="{% url 'home' %}" type="button" class="btn btn-secondary mb-2">Вернуться</a>
+    <a href="{% url 'contract_add' %}" type="button" class="btn btn-secondary mb-2">Добавить</a>
+    <br>
+    {% if page_obj.paginator.count != 0 %}
+        <a href="{%  url 'entities_xlsx' 'contracts' %}" type="button" class="btn btn-secondary mb-2">Выгрузить в xlsx</a>
+        {% if role == 'Admin' %}
+            <a href="{%  url 'entities_json' 'contracts' %}" type="button" class="btn btn-secondary mb-2">Выгрузить в json</a>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block output_entities %}
+    <a href="{% url 'contract' entity.id %}" class="list-group-item list-group-item-action flex-column border border-dark">
+        <div class="d-flex w-100 justify-content-between mt-2">
+            <h5 class="text-username mb-2">Договор #{{ entity.id }}</h5>
+        </div>
+        <p class="text-lfp mb-0">Тур (отель): {{ entity.tour.place.hotel }}</p>
+        <p class="text-lfp mb-0">Продавец: {{ entity.seller.get_lfp }}</p>
+        <p class="text-lfp mb-0">Клиент: {{ entity.client.get_lfp }}</p>
+        <p class="text-lfp mb-0">Время заключения: {{ entity.time }}</p>
+    </a>
+{% endblock %}

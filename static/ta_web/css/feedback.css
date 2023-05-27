@@ -1,0 +1,25 @@
+@import url("base.css");
+
+#grad1 {
+    background: red;
+    background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet);
+    background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
+    background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
+    background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 60px;
+    margin: auto;
+}
+
+.text {
+    color: #71ff00;
+    margin: auto;
+}
+
+.container_img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    margin: auto;
+}

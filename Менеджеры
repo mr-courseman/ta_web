@@ -1,0 +1,10 @@
+[
+  {
+    "model": "ta_web.personal",
+    "pk": 2,
+    "fields": {
+      "patronymic": "Wolfovich",
+      "phone": "+79192853792"
+    }
+  }
+]

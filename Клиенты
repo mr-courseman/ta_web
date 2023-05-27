@@ -1,0 +1,162 @@
+[
+  {
+    "model": "ta_web.client",
+    "pk": 4,
+    "fields": {
+      "patronymic": "Тестович1",
+      "phone": "+79000000001",
+      "birthday": "1991-10-15",
+      "passport": 1
+    }
+  },
+  {
+    "model": "ta_web.client",
+    "pk": 5,
+    "fields": {
+      "patronymic": "Тестович2",
+      "phone": "+79000000002",
+      "birthday": "1991-10-16",
+      "passport": 2
+    }
+  },
+  {
+    "model": "ta_web.client",
+    "pk": 6,
+    "fields": {
+      "patronymic": "Тестович3",
+      "phone": "+79000000003",
+      "birthday": "1991-10-17",
+      "passport": 3
+    }
+  },
+  {
+    "model": "ta_web.client",
+    "pk": 7,
+    "fields": {
+      "patronymic": "Тестович4",
+      "phone": "+79000000004",
+      "birthday": "1991-10-18",
+      "passport": 4
+    }
+  },
+  {
+    "model": "ta_web.client",
+    "pk": 8,
+    "fields": {
+      "patronymic": "Тестович5",
+      "phone": "+79000000005",
+      "birthday": "1991-10-19",
+      "passport": 5
+    }
+  },
+  {
+    "model": "ta_web.client",
+    "pk": 9,
+    "fields": {
+      "patronymic": "Тестович6",
+      "phone": "+79000000006",
+      "birthday": "1991-10-20",
+      "passport": 6
+    }
+  },
+  {
+    "model": "ta_web.client",
+    "pk": 10,
+    "fields": {
+      "patronymic": "Тестович7",
+      "phone": "+79000000007",
+      "birthday": "1991-10-21",
+      "passport": 7
+    }
+  },
+  {
+    "model": "ta_web.client",
+    "pk": 11,
+    "fields": {
+      "patronymic": "Тестович8",
+      "phone": "+79000000008",
+      "birthday": "1991-10-22",
+      "passport": 8
+    }
+  },
+  {
+    "model": "ta_web.client",
+    "pk": 12,
+    "fields": {
+      "patronymic": "Тестович9",
+      "phone": "+79000000009",
+      "birthday": "1991-10-23",
+      "passport": 9
+    }
+  },
+  {
+    "model": "ta_web.client",
+    "pk": 13,
+    "fields": {
+      "patronymic": "Тестович10",
+      "phone": "+790000000010",
+      "birthday": "1991-10-24",
+      "passport": 10
+    }
+  },
+  {
+    "model": "ta_web.client",
+    "pk": 14,
+    "fields": {
+      "patronymic": "Тестович11",
+      "phone": "+790000000011",
+      "birthday": "1991-10-25",
+      "passport": 11
+    }
+  },
+  {
+    "model": "ta_web.client",
+    "pk": 15,
+    "fields": {
+      "patronymic": "Тестович12",
+      "phone": "+790000000012",
+      "birthday": "1991-10-26",
+      "passport": 12
+    }
+  },
+  {
+    "model": "ta_web.client",
+    "pk": 16,
+    "fields": {
+      "patronymic": "Тестович13",
+      "phone": "+790000000013",
+      "birthday": "1991-10-27",
+      "passport": 13
+    }
+  },
+  {
+    "model": "ta_web.client",
+    "pk": 17,
+    "fields": {
+      "patronymic": "Тестович14",
+      "phone": "+790000000014",
+      "birthday": "1991-10-28",
+      "passport": 14
+    }
+  },
+  {
+    "model": "ta_web.client",
+    "pk": 18,
+    "fields": {
+      "patronymic": "Тестович15",
+      "phone": "+790000000015",
+      "birthday": "1991-10-29",
+      "passport": 15
+    }
+  },
+  {
+    "model": "ta_web.client",
+    "pk": 19,
+    "fields": {
+      "patronymic": "Тестович16",
+      "phone": "+790000000016",
+      "birthday": "1991-10-30",
+      "passport": 16
+    }
+  }
+]

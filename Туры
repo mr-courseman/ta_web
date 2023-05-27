@@ -1,0 +1,79 @@
+[
+  {
+    "model": "ta_web.tour",
+    "pk": 1,
+    "fields": {
+      "nights": 1,
+      "place": 1,
+      "description": "Описание какого-то классного тура №1",
+      "movement": 1,
+      "cost": "10000.01"
+    }
+  },
+  {
+    "model": "ta_web.tour",
+    "pk": 2,
+    "fields": {
+      "nights": 2,
+      "place": 4,
+      "description": "Описание какого-то классного тура №2",
+      "movement": 4,
+      "cost": "20000.02"
+    }
+  },
+  {
+    "model": "ta_web.tour",
+    "pk": 3,
+    "fields": {
+      "nights": 3,
+      "place": 5,
+      "description": "Описание какого-то классного тура №3",
+      "movement": 5,
+      "cost": "30000.03"
+    }
+  },
+  {
+    "model": "ta_web.tour",
+    "pk": 4,
+    "fields": {
+      "nights": 4,
+      "place": 6,
+      "description": "Описание какого-то классного тура №4",
+      "movement": 6,
+      "cost": "40000.04"
+    }
+  },
+  {
+    "model": "ta_web.tour",
+    "pk": 5,
+    "fields": {
+      "nights": 5,
+      "place": 7,
+      "description": "Описание какого-то классного тура №5",
+      "movement": 7,
+      "cost": "50000.05"
+    }
+  },
+  {
+    "model": "ta_web.tour",
+    "pk": 6,
+    "fields": {
+      "nights": 6,
+      "place": 8,
+      "description": "Описание какого-то классного тура №6",
+      "movement": 8,
+      "cost": "60000.06"
+    }
+  },
+  {
+    "model": "ta_web.tour",
+    "pk": 7,
+    "fields": {
+      "nights": 7,
+      "place": 9,
+      "description": "Описание какого-то классного тура №7",
+      "movement": 9,
+      "cost": "70000.07"
+    }
+  }
+]

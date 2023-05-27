@@ -1,0 +1,18 @@
+[
+  {
+    "model": "ta_web.personal",
+    "pk": 3,
+    "fields": {
+      "patronymic": "Sheepovich",
+      "phone": "+79192853793"
+    }
+  },
+  {
+    "model": "ta_web.personal",
+    "pk": 20,
+    "fields": {
+      "patronymic": "Tigerovich",
+      "phone": "+79192853794"
+    }
+  }
+]

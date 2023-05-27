@@ -1,0 +1,6 @@
+@import url("../base.css");
+
+.form:hover {
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 255, 0.25);
+}
+

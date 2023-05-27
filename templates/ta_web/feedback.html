@@ -1,0 +1,18 @@
+{% extends 'ta_web/base.html' %}
+{% load static %}
+
+{% block title %}Обратная связь{% endblock %}
+
+{% block style %}
+    <link href="{% static 'ta_web/css/feedback.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block background %}
+    <img src="{% static 'ta_web/images/background.jpg' %}" alt="">
+{% endblock %}
+
+{% block content %}
+    <p id="grad1">Обратная связь</p>
+    <p class="text">Какая обратная связь? Админы ещё учатся...</p>
+    <img class="container_img" src="{% static 'ta_web/images/feedback.jpg' %}" alt="">
+{% endblock %}

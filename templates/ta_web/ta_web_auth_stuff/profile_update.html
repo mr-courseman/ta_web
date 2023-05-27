@@ -1,0 +1,41 @@
+{% extends 'ta_web/base.html' %}
+{% load static %}
+
+{% block title %}Профиль{% endblock %}
+
+{% block style %}
+    <link href="{% static 'ta_web/css/ta_web_auth_stuff/profile_update.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block background %}
+    <img src="{% static 'ta_web/images/background.jpg' %}" alt="">
+{% endblock %}
+
+{% block content %}
+    <form method="POST" class="form">
+        {% csrf_token %}
+        <h1 class="h3 mb-0 fw-normal text-black">Редактирование профиля</h1>
+        <a href="{% url 'profile' %}" type="button" class="btn btn-secondary mt-2 mb-2">Вернуться</a>
+
+        <div class="row-form-errors">
+            {{ form.non_field_errors }}
+        </div>
+
+        {% for field in form %}
+            <div class="form-floating">
+                {{ field }}
+                <label for="{{ field.id_for_label }}" class="floating-input">{{ field.label }}</label>
+                {% include 'ta_web/specialFieldsInput.html' %}
+                <div class="row-form-errors"> {{ field.errors }}</div>
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="btn btn-secondary mt-2">Обновить</button>
+    </form>
+
+    {% for message in messages %}
+        <div class="form-floating">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endblock %}

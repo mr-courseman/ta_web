@@ -1,0 +1,129 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+    font-family: sans-serif;
+    overflow: auto;
+}
+
+/* Блок фона */
+#bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+}
+
+/* Его настройки */
+#bg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%;
+}
+
+/* Центральный отдельный блок */
+.container {
+    display: table;
+    width: auto;
+    position: relative;
+}
+
+/* Ошибки */
+.row-form-errors {
+    font-size: 10px;
+    color: red;
+}
+
+/* Форма в отдельном блоке */
+.form {
+    width: auto;
+    background: rgba(255,255,255,.7);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: black;
+    border-color: black;
+    border-color: rgba(255,255,255,.7);
+    height: 100%;
+}
+
+/* Настройка формы input'ов */
+.form input {
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-color: black;
+    text-align: center;
+    vertical-align: middle;
+    background: none;
+}
+
+/* Стиль div'ов для полей */
+.form-floating {
+    width: 228px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Стиль input'ов */
+.form-control {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Стиль label'ов */
+.floating-input {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Стиль select'ов */
+.form select {
+    background: none;
+    color: black;
+    border-color: black;
+    margin-bottom: 5px;
+}
+
+/* Префикс номера телефона */
+#id_phone_0 {
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 5px;
+    background: none;
+    border-color: black;
+}
+
+.pagination > li > a {
+    background-color: #f8f9fa;
+    color: rgba(143, 132, 124, 0.8);
+}
+
+/* Пагинация */
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover {
+
+}
+
+.pagination > li > a.active {
+
+}
+
+.pagination > li > a.active:hover {
+
+}

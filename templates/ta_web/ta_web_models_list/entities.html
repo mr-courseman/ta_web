@@ -1,0 +1,66 @@
+{% extends 'ta_web/base.html' %}
+{% load static %}
+
+{% block title %}Клиенты{% endblock %}
+
+{% block style %}
+    <link href="{% static 'ta_web/css/ta_web_models_list/base_list.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block background %}
+    <img src="{% static 'ta_web/images/background.jpg' %}" alt="">
+{% endblock %}
+
+{% block content %}
+    <form method="GET" class="form">
+        {% block btns %}{% endblock %}
+
+        <div class="list-group">
+            {% for entity in page_obj %}
+                {% block output_entities %}{% endblock %}
+            {% empty %}
+                <h3>Не нашлось ни одной записи...</h3>
+            {% endfor %}
+        </div>
+
+        {% if page_obj.paginator.count != 0 %}
+            <nav>
+                <ul class="pagination mt-2 mb-0">
+                    {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    {% for page_number in page_obj.adjusted_elided_pages %}
+                        {% if page_number == page_obj.paginator.ELLIPSIS %}
+                            <li class="page-item">
+                                <a class="page-link disabled" href="?page={{ page_number }}">{{ page_number }}</a>
+                            </li>
+                        {% else %}
+                            {% if page_obj.number == page_number %}
+                                <li class="page-item">
+                                    <a class="page-link active" href="?page={{ page_number }}">{{ page_number }}</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        {% endif %}
+    </form>
+{% endblock %}

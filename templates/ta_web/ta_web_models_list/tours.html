@@ -1,0 +1,28 @@
+{% extends 'ta_web/ta_web_models_list/entities.html' %}
+
+{% block btns %}
+    <a href="{% url 'home' %}" type="button" class="btn btn-secondary mb-2">Вернуться</a>
+    {% if role != 'Client' %}
+        <a href="{% url 'tour_add' %}" type="button" class="btn btn-secondary mb-2">Добавить</a>
+        <br>
+        {% if page_obj.paginator.count != 0 %}
+            <a href="{%  url 'entities_xlsx' 'tours' %}" type="button" class="btn btn-secondary mb-2">Выгрузить в xlsx</a>
+            {% if role == 'Admin' %}
+                <a href="{%  url 'entities_json' 'tours' %}" type="button" class="btn btn-secondary mb-2">Выгрузить в json</a>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block output_entities %}
+    <a href="{% url 'tour' entity.id %}" class="list-group-item list-group-item-action flex-column border border-dark">
+        <div class="d-flex w-100 justify-content-between mt-2">
+            <h5 class="text-username mb-2">{{ entity.place.hotel }}</h5>
+        </div>
+        <p class="text-lfp mb-0">Город: {{ entity.movement.a_city }}</p>
+        <p class="text-lfp mb-0">Стоимость: {{ entity.cost }}</p>
+        <p class="text-lfp mb-0">Ночей: {{ entity.nights }}</p>
+        <p class="text-lfp mb-0">Выезд: {{ entity.movement.d_time }}</p>
+        <p class="text-lfp mb-0">Прибытие: {{ entity.movement.a_time }}</p>
+    </a>
+{% endblock %}

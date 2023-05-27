@@ -1,0 +1,16 @@
+{% extends 'ta_web/ta_web_models_show/entity.html' %}
+
+{% block back_btn %}
+    {% if role == 'Client' %}
+        <a href="{% url 'my_tours' %}" type="button" class="btn btn-secondary mb-2">Вернуться</a>
+    {% else %}
+        <a href="{% url 'tours' %}" type="button" class="btn btn-secondary mb-2">Вернуться</a>
+    {% endif %}
+{% endblock %}
+
+{% block upd_del_btn %}
+    {% if role != 'Client' and role != 'Seller' %}
+        <a href="{% url 'tour_update' id %}" type="button" class="btn btn-secondary mt-2">Редактирование {{ placeholder }}</a>
+        <a href="{% url 'tour_delete' id %}" type="button" class="btn btn-secondary mt-2">Удаление {{ placeholder }}</a>
+    {% endif %}
+{% endblock %}

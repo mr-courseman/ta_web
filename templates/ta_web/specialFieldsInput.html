@@ -1,0 +1,91 @@
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+
+{% if field.widget_type == 'date' %}
+    <script>
+        $(function() {
+            birth = $('input[id="birthday"]');
+            birth.text(birth.daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                startDate: moment(),
+                minDate: '1901-01-01',
+                minYear: 1901,
+                maxYear: parseInt(moment().format('YYYY'), 10),
+                locale: {
+                    format: 'YYYY-MM-DD',
+                },
+                autoApply: true,
+            }).val());
+            issue = $('input[id="issue_date"]');
+            issue.text(issue.daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                startDate: moment(),
+                minDate: moment([parseInt(moment().format('YYYY-MM-DD'), 10) - 40, 1, 1]),
+                minYear: parseInt(moment().format('YYYY'), 10) - 40,
+                maxYear: parseInt(moment().format('YYYY'), 10),
+                locale: {
+                    format: 'YYYY-MM-DD',
+                },
+                autoApply: true,
+            }).val());
+        });
+    </script>
+{% endif %}
+{% if field.widget_type == 'datetime' %}
+    <script>
+        $(function() {
+            d_time = $('input[id="d_time"]');
+            d_time.text(d_time.daterangepicker({
+                singleDatePicker: true,
+                timePicker24Hour: true,
+                timePicker: true,
+                showDropdowns: true,
+                startDate: moment(),
+                minDate: moment([parseInt(moment().format('YYYY'), 10), parseInt(moment().format('MM'), 10), parseInt(moment().format('DD'), 10) + 1]),
+                minYear: parseInt(moment().format('YYYY'), 10),
+                maxYear: parseInt(moment().format('YYYY'), 10) + 1,
+                locale: {
+                    format: 'YYYY-MM-DD hh:mm',
+                },
+                autoApply: true,
+            }).val());
+            a_time = $('input[id="a_time"]');
+            a_time.text(a_time.daterangepicker({
+                singleDatePicker: true,
+                timePicker24Hour: true,
+                timePicker: true,
+                showDropdowns: true,
+                startDate: moment([parseInt(moment().format('YYYY'), 10), parseInt(moment().format('MM'), 10), parseInt(moment().format('DD'), 10) + 1]),
+                minDate: moment([parseInt(moment().format('YYYY'), 10), parseInt(moment().format('MM'), 10), parseInt(moment().format('DD'), 10) + 2]),
+                minYear: parseInt(moment().format('YYYY'), 10),
+                maxYear: parseInt(moment().format('YYYY'), 10) + 1,
+                locale: {
+                    format: 'YYYY-MM-DD hh:mm',
+                },
+                autoApply: true,
+            }).val());
+        });
+    </script>
+{% endif %}
+{% if field.widget_type == 'phonenumberprefix' %}
+    <script>
+        $(function() {
+            $('select[id="phone_0"]').click(function() {
+                $(this).unbind("mouseout");
+            }).change(function(){
+                const sel = $('select[id="phone_0"]');
+                const $aux = $('<select/>').append($('<option/>').text(sel.find('option:selected').text()));
+                sel.after($aux)
+                if($aux.width() > 228) {
+                    $('div[class="form-floating"]').width($aux.width() + 10);
+                } else {
+                    $('div[class="form-floating"]').width("228");
+                }
+                $aux.remove()
+            })
+        });
+    </script>
+{% endif %}

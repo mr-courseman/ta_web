@@ -1,0 +1,23 @@
+{% extends 'ta_web/ta_web_models_list/entities.html' %}
+
+{% block btns %}
+    <a href="{% url 'home' %}" type="button" class="btn btn-secondary mb-2">Вернуться</a>
+    <a href="{% url 'seller_add' %}" type="button" class="btn btn-secondary mb-2">Добавить</a>
+    <br>
+    {% if page_obj.paginator.count != 0 %}
+        <a href="{%  url 'entities_xlsx' 'sellers' %}" type="button" class="btn btn-secondary mb-2">Выгрузить в xlsx</a>
+        {% if role == 'Admin' %}
+            <a href="{%  url 'entities_json' 'sellers' %}" type="button" class="btn btn-secondary mb-2">Выгрузить в json</a>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block output_entities %}
+    <a href="{% url 'seller' entity.id %}" class="list-group-item list-group-item-action flex-column border border-dark">
+        <div class="d-flex w-100 justify-content-between mt-2">
+            <h5 class="text-username mb-2">{{ entity.username }}</h5>
+        </div>
+        <p class="text-lfp mb-0">ФИО: {{ entity.get_lfp }}</p>
+        <p class="text-lfp mb-0">Телефон: {{ entity.phone }}</p>
+    </a>
+{% endblock %}
